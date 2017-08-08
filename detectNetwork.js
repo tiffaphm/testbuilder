@@ -128,11 +128,15 @@ function checkSwitch(cardNumber) {
   var prefix1 = numbers.slice(0, 4).join('');
   var prefix2 = numbers.slice(0, 6).join('');
 
+  var prefixes = ['4903', '4905', '4911', '4936', '6333', '6759', '564182', '633110'];
+
   if (cardNumber.length === 16 || cardNumber.length === 18 || cardNumber.length === 19) {
-    if (prefix1 === '4903' || prefix1 === '4905' || prefix1 === '4911' || prefix1 === '4936' || prefix1 === '6333' || prefix1 === '6759') {
-      return true;
-    } else if (prefix2 === '564182' || prefix2 === '633110') {
-      return true;
+    for (var i=0; i < prefixes.length; i++) {
+      if (prefixes[i] === prefix1) {
+        return true;
+      } else if (prefixes[i] === prefix2) {
+        return true;
+      }
     }
   } else {
     return false;
